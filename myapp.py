@@ -1,3 +1,4 @@
+#!/usr/bin/python
 from flask import Flask
 import requests
 from flask import request
@@ -14,6 +15,10 @@ def set_basic_auth(username, password):
 app = Flask(__name__)
 
 @app.route("/")
+@app.route("/check" , methods=['GET'])
+def check():
+     return "app work!"
+
 @app.route("/backup", methods=['GET'])
 def backup():
     username = request.args.get('username')
@@ -26,4 +31,4 @@ def backup():
     return content.text
     
 if __name__ == "__main__":
-    app.run()
+    app.run(host='0.0.0.0')
