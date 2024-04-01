@@ -10,8 +10,6 @@ def set_basic_auth(username, password):
         return "Basic {parameters}".format(parameters=auth)
 
 
-
-
 app = Flask(__name__)
 
 @app.route("/")
