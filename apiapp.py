@@ -14,6 +14,10 @@ def set_basic_auth(username, password):
 app = Flask(__name__)
 
 @app.route("/")
+@app.route("/check" , methods=['GET'])
+def check():
+     return "app work!"
+
 @app.route("/backup", methods=['GET'])
 def backup():
     username = request.args.get('username')
